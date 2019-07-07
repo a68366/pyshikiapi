@@ -6,13 +6,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pyshikiapi",
-    version="1.0.0",
+    version="1.0.1",
     author="a68366",
     description="Python wrapper for shikimori API",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/a68366/pyshikiapi",
-    packages=setuptools.find_packages(),
+    packages=['pyshikiapi'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "Intended Audience :: Developers",
