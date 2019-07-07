@@ -13,8 +13,8 @@ client_id = 'YOUR_APP_CLIENT_ID'
 client_secret = 'YOUR_APP_SECRET'
 
 api = API(app_name, client_id, client_secret)
-print('Please visit the link and copy authorization token:', api.authorization_url)
-code = input('The token: ')
+print('Please visit the link and copy authorization code:', api.authorization_url)
+code = input('The code: ')
 api.fetch_token(code)
 
 # Now you can use the api object to send requests
