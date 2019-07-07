@@ -14,6 +14,16 @@ class API:
     def __init__(self, app_name, client_id, client_secret,
                  token=None, token_update_callback=None,
                  redirect_uri='urn:ietf:wg:oauth:2.0:oob'):
+        """
+        :param app_name: Your application name. Create one here: https://shikimori.one/oauth/applications
+        :param client_id: ID of your application. Find it on your application page.
+        :param client_secret: Secret of your application. Find it on your application page.
+        :param token: Oauth access token.
+        :param token_update_callback: A function that accepts 1 argument (dict-like token object).
+        It is called when token changes, e.g. when fetch_token() is called or when token auto-refresh happens.
+        :param redirect_uri: Where to redirect authenticated user.
+        You can point at your webserver to receive user auth code.
+        """
 
         self.app_name = app_name
         self.client_id = client_id
@@ -35,6 +45,10 @@ class API:
         return self._session.authorization_url(self.AUTHORIZATION_URL)[0]
 
     def fetch_token(self, code):
+        """
+        :param code: Authentication code, obtained from user
+        """
+
         self._session.fetch_token(self.TOKEN_URL, code=code,
                                   client_secret=self.client_secret,
                                   headers=self._headers)
@@ -74,6 +88,14 @@ class API:
 
 
 def is_v2(path):
+    """
+    Some methods of the api are implemented in api version 2.
+    More info here: https://shikimori.one/api/doc/2.0
+
+    :param path: request path
+    :return: True if path belongs to version 2 of the api, False otherwise
+    """
+
     patterns = [r'users/signup', r'abuse_requests.*', r'users/\d+/ignore',
                 r'topics/\d+/ignore', r'user_rates(/\d+.*)?',
                 r'episode_notifications']
