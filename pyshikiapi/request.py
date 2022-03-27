@@ -29,4 +29,4 @@ class Request:
         return Request(self._api, name, parent=self)
 
     def __repr__(self):
-        return '<pyshikiapi-Request path={0}>'.format(self._path)
+        return '<pyshikiapi.request.Request path={0}>'.format(self._path)

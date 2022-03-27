@@ -4,7 +4,6 @@ from pyshikiapi.request import Request
 
 
 class TestRequest(TestCase):
-
     def setUp(self):
         self.req = Request(None, '')
 

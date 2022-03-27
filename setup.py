@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pyshikiapi",
-    version="1.0.1",
+    version="1.0.2",
     author="a68366",
     description="Python wrapper for shikimori API",
     long_description=long_description,
@@ -19,5 +19,5 @@ setuptools.setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    install_requires=["requests-oauthlib"]
+    install_requires=["requests-oauthlib"],
 )

@@ -32,15 +32,23 @@ def login(api):
 
 def main():
     if sys.argv[-1] == 'login':
-        api = API(APP_NAME, CLIENT_ID, CLIENT_SECRET, token_update_callback=token_file_saver)
+        api = API(
+            APP_NAME, CLIENT_ID, CLIENT_SECRET, token_update_callback=token_file_saver
+        )
         login(api)
         return
     else:
         token = token_file_loader()
-        api = API(APP_NAME, CLIENT_ID, CLIENT_SECRET, token=token, token_update_callback=token_file_saver)
+        api = API(
+            APP_NAME,
+            CLIENT_ID,
+            CLIENT_SECRET,
+            token=token,
+            token_update_callback=token_file_saver,
+        )
 
     # do some stuff
-    print(api.devices.GET())
+    print(api.animes.GET())
 
 
 if __name__ == '__main__':
